@@ -49,6 +49,12 @@ To understand the metrics used for model performance evaluation, please  refer h
 ## Results
 We trained our model by the above mentioned benchmarks at different input resolutions. Cityscapes provides 1024 * 2048 px resolution images. We mainly focus full resolution of cityscapes images. For CamVid dataset, we use 640 * 896 px resolution altough original image size is 720 * 960 px. Similarly, we use 384 * 1280 px resolution input images for KITTI dataset although original size of input image is 375 * 1280 px. For Cityscapes and KITTI datasets, we use 19 classes, however for Camvid dataset we trained the model with 11 classes (suggested by the literature). 
 
+Dataset    | No. of classes  |  Test mIoU | No. of parameters | FLOPs   
+-----------|-----------------|------------|-------------------|--------
+Cityscapes |        19       |    70.6%   |    1.6 million    | 37.9 G
+KITTI      |        19       |    49.3%   |    1.6 million    |  8.9 G
+Camvid     |        11       |    71.6%   |    1.6 million    | 10.2 G
+
 ### Cityscapes test results
 The output of the test set is submitted to Cityscapes evaluation server. To view the test set result evaluated by the server, click the following link: 
 This is an anonymous link given by the Cityscapes server. Upon the acceptance of the paper, test result will be cited by the paper and will be published in the evaluation server.
