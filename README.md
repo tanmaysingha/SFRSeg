@@ -80,3 +80,4 @@ This is an anonymous link given by the Cityscapes server. Upon the acceptance of
 
 ### KITTI test set results
 Like Cityscapes, KITTI test set result is also sumbitted to the evaluation server. Click the following link to see the result:
+https://github.com/tanmaysingha/SFRSeg/blob/main/Supplementary/KITTI_Test_Results.pdf
