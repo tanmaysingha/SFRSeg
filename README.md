@@ -53,7 +53,7 @@ Dataset    | No. of classes  |  Test mIoU | No. of parameters | FLOPs
 -----------|-----------------|------------|-------------------|--------
 Cityscapes |        19       |    70.6%   |    1.6 million    | 37.9 G
 KITTI      |        19       |    49.3%   |    1.6 million    |  8.9 G
-Camvid     |        11       |    71.6%   |    1.6 million    | 10.2 G
+Camvid     |        11       |    74.7%   |    1.6 million    | 10.2 G
 
 ### Cityscapes test results
 The output of the test set is submitted to Cityscapes evaluation server. To view the test set result evaluated by the server, click the following link: 
