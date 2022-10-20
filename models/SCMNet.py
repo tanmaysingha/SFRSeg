@@ -68,7 +68,7 @@ def SeparableConvBlock(num_channels, kernel_size, strides, freeze_bn=False):
   f2 = tf.keras.layers.BatchNormalization(momentum=MOMENTUM, epsilon=EPSILON)
   return reduce(lambda f, g: lambda *args, **kwargs: g(f(*args, **kwargs)), (f1, f2))
 
-def DCM_block(input_tensor):
+def CMM_block(input_tensor):
   shape = list(input_tensor.shape)
   h = shape[1]
   w = shape[2]
@@ -85,7 +85,7 @@ def DCM_block(input_tensor):
   norm3x3_d6 = tf.keras.layers.BatchNormalization()(conv3x3_d6)
   relu3x3_d6 = tf.keras.activations.relu(norm3x3_d6)
 
-  # Image pooling 1
+  # Instead of Image pooling branch separable convolution branch is used
   """pool1 = tf.keras.layers.AveragePooling2D(pool_size=(h, w))(input_tensor)
   conv1 = tf.keras.layers.Conv2D(ch, 1, strides=1, padding='same', use_bias=False)(pool1)
   norm1 = tf.keras.layers.BatchNormalization()(conv1)
@@ -95,7 +95,7 @@ def DCM_block(input_tensor):
   norm3x3_d12 = tf.keras.layers.BatchNormalization()(conv3x3_d12)
   relu3x3_d12 = tf.keras.activations.relu(norm3x3_d12)
 
-  # Image pooling 2
+  # Instead of Image pooling branch separable convolution branch is used
   """pool2 = tf.keras.layers.AveragePooling2D(pool_size=(2, 2))(input_tensor)
   conv2 = tf.keras.layers.Conv2D(ch, 1, strides=1, padding='same', use_bias=False)(pool2)
   norm2 = tf.keras.layers.BatchNormalization()(conv2)
@@ -118,20 +118,16 @@ def model(num_classes=19, input_size=(1024, 2048, 3)):
     
 
     ## DEEP BRANCH
-    #reduced_input_size = (int(input_size[0]/shrink_factor), int(input_size[1]/shrink_factor), input_size[2])
-
-    #deep_input = tf.keras.layers.Input(shape=reduced_input_size, name='input_deep')
     deep_branch1 = conv_block(shallow_branch0, 'conv', 32, (3, 3), strides = (2, 2), dilation_rate=(1, 1)) 
     deep_branch2 = bottleneck_block(deep_branch1, 32, (3, 3), t = 1, strides = 2, dilation_rate=(1, 1), n = 1) 
     deep_branch2 = bottleneck_block(deep_branch2, 48, (3, 3), t = 6, strides = 1, dilation_rate=(1, 1), n = 2)  
     
     shallow_branch1 = conv_block(shallow_branch0, 'ds', 32, (3, 3), strides = (2, 2), dilation_rate=(1, 1)) 
-    #downsample = shallow_branch
     shallow_branch2 = conv_block(shallow_branch1, 'ds', 48, (3, 3), strides = (2, 2), dilation_rate=(1, 1)) 
     
     Deep_shallow_Add1 = tf.keras.layers.add([shallow_branch2, deep_branch2])
     Deep_shallow_Add1 = tf.keras.activations.relu(Deep_shallow_Add1)
-    Deep_shallow_Add1 = DCM_block(Deep_shallow_Add1) 
+    Deep_shallow_Add1 = CMM_block(Deep_shallow_Add1) 
     
     deep_branch3 = bottleneck_block(Deep_shallow_Add1, 64, (3, 3), t = 6, strides = 2, dilation_rate=(1, 1), n = 3) 
     deep_branch3 = bottleneck_block(deep_branch3, 96, (3, 3), t = 6, strides = 1, dilation_rate=(1, 1), n = 1) 
@@ -140,7 +136,7 @@ def model(num_classes=19, input_size=(1024, 2048, 3)):
 
     Deep_shallow_Add2 = tf.keras.layers.add([shallow_branch3, deep_branch3])
     Deep_shallow_Add2 = tf.keras.activations.relu(Deep_shallow_Add2)
-    Deep_shallow_Add2 = DCM_block(Deep_shallow_Add2)
+    Deep_shallow_Add2 = CMM_block(Deep_shallow_Add2)
 
     deep_branch4 = bottleneck_block(Deep_shallow_Add2, 128, (3, 3), t = 6, strides = 2, dilation_rate=(1, 1), n = 3)
     deep_branch4 = bottleneck_block(deep_branch4, 160, (3, 3), t = 6, strides = 1, dilation_rate=(1, 1), n = 1) 
@@ -149,7 +145,7 @@ def model(num_classes=19, input_size=(1024, 2048, 3)):
 
     Deep_shallow_Add3 = tf.keras.layers.add([shallow_branch4, deep_branch4])
     Deep_shallow_Add3 = tf.keras.activations.relu(Deep_shallow_Add3)
-    Deep_shallow_Add3 = DCM_block(Deep_shallow_Add3) 
+    Deep_shallow_Add3 = CMM_block(Deep_shallow_Add3) 
 
     shared_branch = tf.keras.layers.MaxPooling2D(pool_size=3, strides=2, padding='same')(Deep_shallow_Add3)
 
