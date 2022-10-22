@@ -2,10 +2,11 @@
 This is an official site for SFRSeg model. Currently, the model predictions and supplimentary materials are uploaded. Upon the acceptance of the paper, this repository will be updated.
 
 ## Datasets
-For this research work, we have used Cityscapes, KITTI and CamVid datasets.
+For this research work, we have used Cityscapes, KITTI, CamVid and Indoor objects datasets.
 * Cityscapes - To access this benchmark, user needs an account. For test set evaluation, user needs to upload all the test set results into the server. https://www.cityscapes-dataset.com/downloads/ 
 * KITTI - To access this benchmark, user needs an account. Like Cityscapes, user needs to submit the test set result to the evaluation server.  http://www.cvlibs.net/datasets/kitti/eval_semseg.php?benchmark=semantics2015    
 * CamVid - To access this benchmark, visit this link: http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/
+* Indoor Objects - To access this benchmark, visit this link: https://data.mendeley.com/datasets/hs5w7xfzdk/3
 
 ## Class mapping
 Different datasets provide different class annotations. For instance, Camvid dataset has 32 class labels. Refer this link to know about all 32 classes of Camvid: http://mi.eng.cam.ac.uk/research/projects/VideoRec/CamVid/#ClassLabels. However, literature have shown that all the existing models are trained by 11 classes (Sky, Building, Pole, Road, Sidewalk, Tree, TrafficLight, Fence, Car, Pedestrian, Bicyclist) of Camvid dataset. Thereby, first 32 class annotations of Camvid are converted into 11 class annotations and then model is trained with 11 class annotations. To improve model performance, we also converted Cityscapes 19 class annotations to 11 class anotation and trained the model first with Cityscapes 11 class annotation, then use the pre-trained weight of Cityscapes to train the model with Camvid 11 class annotations. The following table shows the convertion of 32 classes of Camvid dataset to 11 classes.
@@ -81,3 +82,6 @@ This is an anonymous link given by the Cityscapes server. Upon the acceptance of
 ### KITTI test set results
 Like Cityscapes, KITTI test set result is also sumbitted to the evaluation server. Click the following link to see the result:
 https://github.com/tanmaysingha/SFRSeg/blob/main/Supplementary/KITTI_Test_Results.pdf
+
+### SFRSeg prediction on Indoor objects scenes
+![indoor_val_set](https://github.com/tanmaysingha/SFRSeg/blob/main/Images/Indoor_predictions.png?raw=true)
