@@ -55,7 +55,7 @@ Dataset         | No. of classes  |  Test mIoU | No. of parameters | FLOPs
 Cityscapes      |        19       |    70.6%   |    1.6 million    | 37.9 G
 KITTI           |        19       |    49.3%   |    1.6 million    |  8.9 G
 Camvid          |        11       |    74.7%   |    1.6 million    | 10.2 G
-Indoor Objects  |         9       |    60.7%   |    1.6 million    | 19.3 G
+Indoor Objects  |         9       |    61.4%   |    1.6 million    | 19.3 G
 
 Cityscapes, KITTI, CamVid are urban street scenes datasets. Hence, the first three rows in the above table shows the model's performance on outdoor scenes. However, for indoor scenes analysis and indoor navigation mainly for wheelchair users and service robots, we also trained the model with Indoor objects dataset at 768 * 1408 px resolution. FLOPs count varies due to the varied input resolutions.
 
@@ -90,5 +90,8 @@ This is an anonymous link given by the Cityscapes server. Upon the acceptance of
 Like Cityscapes, KITTI test set result is also sumbitted to the evaluation server. Click the following link to see the result:
 https://github.com/tanmaysingha/SFRSeg/blob/main/Supplementary/KITTI_Test_Results.pdf
 
+### Color map of Indoor objects dataset
+![Indoor_colormap](https://github.com/tanmaysingha/SFRSeg/blob/main/Images/Indoor_colormap.png?raw=true)
+
 ### SFRSeg prediction on Indoor objects scenes
-![indoor_val_set](https://github.com/tanmaysingha/SFRSeg/blob/main/Images/Indoor_predictions.png?raw=true)
+![indoor_val_set](https://github.com/tanmaysingha/SFRSeg/blob/main/Images/Indoor_pred.png?raw=true)
