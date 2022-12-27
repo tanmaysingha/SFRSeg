@@ -1,7 +1,3 @@
-args.config= configs/mobilenet_v3/lraspp_m-v3-d8_512x1024_320k_cityscapes.py
-None
-None
-build segmentor is done
 EncoderDecoder(
   3.238 M, 98.571% Params, 68.718 GFLOPs, 100.000% FLOPs, 
   (backbone): MobileNetV3(
