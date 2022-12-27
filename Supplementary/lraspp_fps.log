@@ -1,0 +1,6 @@
+load checkpoint from local path: /mnt/data/sonny/checkpoints/lraspp/lraspp_m-v3-d8_512x1024_320k_cityscapes_20201224_220337-cfe8fb07.pth
+Done image [50 / 200], fps: 12.91 img / s
+Done image [100/ 200], fps: 12.92 img / s
+Done image [150/ 200], fps: 12.91 img / s
+Done image [200/ 200], fps: 12.92 img / s
+Overall fps: 12.92 img / s

@@ -1,0 +1,538 @@
+args.config= configs/mobilenet_v3/lraspp_m-v3-d8_512x1024_320k_cityscapes.py
+None
+None
+build segmentor is done
+EncoderDecoder(
+  3.238 M, 98.571% Params, 68.718 GFLOPs, 100.000% FLOPs, 
+  (backbone): MobileNetV3(
+    2.926 M, 89.077% Params, 48.311 GFLOPs, 70.303% FLOPs, 
+    (layer0): ConvModule(
+      0.0 M, 0.000% Params, 0.008 GFLOPs, 0.012% FLOPs, 
+      (conv): Conv2dAdaptivePadding(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 3, 16, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 16, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): HSwish(
+        0.0 M, 0.000% Params, 0.008 GFLOPs, 0.012% FLOPs, 
+        (act): ReLU6(0.0 M, 0.000% Params, 0.008 GFLOPs, 0.012% FLOPs, inplace=True)
+      )
+    )
+    (layer1): InvertedResidualV3(
+      0.0 M, 0.012% Params, 0.218 GFLOPs, 0.317% FLOPs, 
+      (depthwise_conv): ConvModule(
+        0.0 M, 0.004% Params, 0.084 GFLOPs, 0.122% FLOPs, 
+        (conv): Conv2d(0.0 M, 0.004% Params, 0.075 GFLOPs, 0.110% FLOPs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=16, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 16, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.008 GFLOPs, 0.012% FLOPs, inplace=True)
+      )
+      (linear_conv): ConvModule(
+        0.0 M, 0.008% Params, 0.134 GFLOPs, 0.195% FLOPs, 
+        (conv): Conv2d(0.0 M, 0.008% Params, 0.134 GFLOPs, 0.195% FLOPs, 16, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 16, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer2): InvertedResidualV3(
+      0.003 M, 0.078% Params, 0.78 GFLOPs, 1.135% FLOPs, 
+      (expand_conv): ConvModule(
+        0.001 M, 0.031% Params, 0.57 GFLOPs, 0.830% FLOPs, 
+        (conv): Conv2d(0.001 M, 0.031% Params, 0.537 GFLOPs, 0.781% FLOPs, 16, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.034 GFLOPs, 0.049% FLOPs, inplace=True)
+      )
+      (depthwise_conv): ConvModule(
+        0.0 M, 0.000% Params, 0.008 GFLOPs, 0.012% FLOPs, 
+        (conv): Conv2dAdaptivePadding(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 64, 64, kernel_size=(3, 3), stride=(2, 2), groups=64, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.008 GFLOPs, 0.012% FLOPs, inplace=True)
+      )
+      (linear_conv): ConvModule(
+        0.002 M, 0.047% Params, 0.201 GFLOPs, 0.293% FLOPs, 
+        (conv): Conv2d(0.002 M, 0.047% Params, 0.201 GFLOPs, 0.293% FLOPs, 64, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer3): InvertedResidualV3(
+      0.004 M, 0.125% Params, 0.557 GFLOPs, 0.810% FLOPs, 
+      (expand_conv): ConvModule(
+        0.002 M, 0.053% Params, 0.236 GFLOPs, 0.343% FLOPs, 
+        (conv): Conv2d(0.002 M, 0.053% Params, 0.226 GFLOPs, 0.330% FLOPs, 24, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 72, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.009 GFLOPs, 0.014% FLOPs, inplace=True)
+      )
+      (depthwise_conv): ConvModule(
+        0.001 M, 0.020% Params, 0.094 GFLOPs, 0.137% FLOPs, 
+        (conv): Conv2d(0.001 M, 0.020% Params, 0.085 GFLOPs, 0.124% FLOPs, 72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=72, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 72, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.009 GFLOPs, 0.014% FLOPs, inplace=True)
+      )
+      (linear_conv): ConvModule(
+        0.002 M, 0.053% Params, 0.226 GFLOPs, 0.330% FLOPs, 
+        (conv): Conv2d(0.002 M, 0.053% Params, 0.226 GFLOPs, 0.330% FLOPs, 72, 24, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 24, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer4): InvertedResidualV3(
+      0.008 M, 0.248% Params, 0.335 GFLOPs, 0.488% FLOPs, 
+      (expand_conv): ConvModule(
+        0.002 M, 0.053% Params, 0.236 GFLOPs, 0.343% FLOPs, 
+        (conv): Conv2d(0.002 M, 0.053% Params, 0.226 GFLOPs, 0.330% FLOPs, 24, 72, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 72, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.009 GFLOPs, 0.014% FLOPs, inplace=True)
+      )
+      (depthwise_conv): ConvModule(
+        0.0 M, 0.000% Params, 0.002 GFLOPs, 0.003% FLOPs, 
+        (conv): Conv2dAdaptivePadding(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 72, 72, kernel_size=(5, 5), stride=(2, 2), groups=72, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 72, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.002 GFLOPs, 0.003% FLOPs, inplace=True)
+      )
+      (se): SELayer(
+        0.004 M, 0.108% Params, 0.002 GFLOPs, 0.003% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.002 GFLOPs, 0.003% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.002 M, 0.053% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.002 M, 0.053% Params, 0.0 GFLOPs, 0.000% FLOPs, 72, 24, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.002 M, 0.055% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.002 M, 0.055% Params, 0.0 GFLOPs, 0.000% FLOPs, 24, 72, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.003 M, 0.088% Params, 0.094 GFLOPs, 0.137% FLOPs, 
+        (conv): Conv2d(0.003 M, 0.088% Params, 0.094 GFLOPs, 0.137% FLOPs, 72, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer5): InvertedResidualV3(
+      0.02 M, 0.622% Params, 0.425 GFLOPs, 0.618% FLOPs, 
+      (expand_conv): ConvModule(
+        0.005 M, 0.146% Params, 0.161 GFLOPs, 0.235% FLOPs, 
+        (conv): Conv2d(0.005 M, 0.146% Params, 0.157 GFLOPs, 0.229% FLOPs, 40, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.004 GFLOPs, 0.006% FLOPs, inplace=True)
+      )
+      (depthwise_conv): ConvModule(
+        0.003 M, 0.091% Params, 0.102 GFLOPs, 0.149% FLOPs, 
+        (conv): Conv2d(0.003 M, 0.091% Params, 0.098 GFLOPs, 0.143% FLOPs, 120, 120, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=120, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.004 GFLOPs, 0.006% FLOPs, inplace=True)
+      )
+      (se): SELayer(
+        0.008 M, 0.238% Params, 0.004 GFLOPs, 0.006% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.004 GFLOPs, 0.006% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.004 M, 0.118% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.004 M, 0.118% Params, 0.0 GFLOPs, 0.000% FLOPs, 120, 32, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.004 M, 0.121% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.004 M, 0.121% Params, 0.0 GFLOPs, 0.000% FLOPs, 32, 120, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.005 M, 0.146% Params, 0.157 GFLOPs, 0.229% FLOPs, 
+        (conv): Conv2d(0.005 M, 0.146% Params, 0.157 GFLOPs, 0.229% FLOPs, 120, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer6): InvertedResidualV3(
+      0.02 M, 0.622% Params, 0.425 GFLOPs, 0.618% FLOPs, 
+      (expand_conv): ConvModule(
+        0.005 M, 0.146% Params, 0.161 GFLOPs, 0.235% FLOPs, 
+        (conv): Conv2d(0.005 M, 0.146% Params, 0.157 GFLOPs, 0.229% FLOPs, 40, 120, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.004 GFLOPs, 0.006% FLOPs, inplace=True)
+      )
+      (depthwise_conv): ConvModule(
+        0.003 M, 0.091% Params, 0.102 GFLOPs, 0.149% FLOPs, 
+        (conv): Conv2d(0.003 M, 0.091% Params, 0.098 GFLOPs, 0.143% FLOPs, 120, 120, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=120, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 120, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.004 GFLOPs, 0.006% FLOPs, inplace=True)
+      )
+      (se): SELayer(
+        0.008 M, 0.238% Params, 0.004 GFLOPs, 0.006% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.004 GFLOPs, 0.006% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.004 M, 0.118% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.004 M, 0.118% Params, 0.0 GFLOPs, 0.000% FLOPs, 120, 32, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.004 M, 0.121% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.004 M, 0.121% Params, 0.0 GFLOPs, 0.000% FLOPs, 32, 120, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.005 M, 0.146% Params, 0.157 GFLOPs, 0.229% FLOPs, 
+        (conv): Conv2d(0.005 M, 0.146% Params, 0.157 GFLOPs, 0.229% FLOPs, 120, 40, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 40, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer7): InvertedResidualV3(
+      0.029 M, 0.877% Params, 0.959 GFLOPs, 1.396% FLOPs, 
+      (expand_conv): ConvModule(
+        0.01 M, 0.292% Params, 0.322 GFLOPs, 0.469% FLOPs, 
+        (conv): Conv2d(0.01 M, 0.292% Params, 0.315 GFLOPs, 0.458% FLOPs, 40, 240, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 240, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.008 GFLOPs, 0.011% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.008 GFLOPs, 0.011% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.0 M, 0.000% Params, 0.008 GFLOPs, 0.011% FLOPs, 
+        (conv): Conv2dAdaptivePadding(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 240, 240, kernel_size=(3, 3), stride=(1, 1), dilation=(2, 2), groups=240, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 240, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.008 GFLOPs, 0.011% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.008 GFLOPs, 0.011% FLOPs, inplace=True)
+        )
+      )
+      (linear_conv): ConvModule(
+        0.019 M, 0.585% Params, 0.629 GFLOPs, 0.916% FLOPs, 
+        (conv): Conv2d(0.019 M, 0.585% Params, 0.629 GFLOPs, 0.916% FLOPs, 240, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 80, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer8): InvertedResidualV3(
+      0.034 M, 1.029% Params, 1.121 GFLOPs, 1.631% FLOPs, 
+      (expand_conv): ConvModule(
+        0.016 M, 0.487% Params, 0.531 GFLOPs, 0.772% FLOPs, 
+        (conv): Conv2d(0.016 M, 0.487% Params, 0.524 GFLOPs, 0.763% FLOPs, 80, 200, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 200, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.007 GFLOPs, 0.010% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.007 GFLOPs, 0.010% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.002 M, 0.055% Params, 0.066 GFLOPs, 0.095% FLOPs, 
+        (conv): Conv2d(0.002 M, 0.055% Params, 0.059 GFLOPs, 0.086% FLOPs, 200, 200, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), groups=200, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 200, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.007 GFLOPs, 0.010% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.007 GFLOPs, 0.010% FLOPs, inplace=True)
+        )
+      )
+      (linear_conv): ConvModule(
+        0.016 M, 0.487% Params, 0.524 GFLOPs, 0.763% FLOPs, 
+        (conv): Conv2d(0.016 M, 0.487% Params, 0.524 GFLOPs, 0.763% FLOPs, 200, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 80, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer9): InvertedResidualV3(
+      0.031 M, 0.947% Params, 1.031 GFLOPs, 1.500% FLOPs, 
+      (expand_conv): ConvModule(
+        0.015 M, 0.448% Params, 0.488 GFLOPs, 0.711% FLOPs, 
+        (conv): Conv2d(0.015 M, 0.448% Params, 0.482 GFLOPs, 0.702% FLOPs, 80, 184, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 184, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.002 M, 0.050% Params, 0.06 GFLOPs, 0.088% FLOPs, 
+        (conv): Conv2d(0.002 M, 0.050% Params, 0.054 GFLOPs, 0.079% FLOPs, 184, 184, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), groups=184, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 184, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, inplace=True)
+        )
+      )
+      (linear_conv): ConvModule(
+        0.015 M, 0.448% Params, 0.482 GFLOPs, 0.702% FLOPs, 
+        (conv): Conv2d(0.015 M, 0.448% Params, 0.482 GFLOPs, 0.702% FLOPs, 184, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 80, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer10): InvertedResidualV3(
+      0.031 M, 0.947% Params, 1.031 GFLOPs, 1.500% FLOPs, 
+      (expand_conv): ConvModule(
+        0.015 M, 0.448% Params, 0.488 GFLOPs, 0.711% FLOPs, 
+        (conv): Conv2d(0.015 M, 0.448% Params, 0.482 GFLOPs, 0.702% FLOPs, 80, 184, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 184, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.002 M, 0.050% Params, 0.06 GFLOPs, 0.088% FLOPs, 
+        (conv): Conv2d(0.002 M, 0.050% Params, 0.054 GFLOPs, 0.079% FLOPs, 184, 184, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), groups=184, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 184, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.006 GFLOPs, 0.009% FLOPs, inplace=True)
+        )
+      )
+      (linear_conv): ConvModule(
+        0.015 M, 0.448% Params, 0.482 GFLOPs, 0.702% FLOPs, 
+        (conv): Conv2d(0.015 M, 0.448% Params, 0.482 GFLOPs, 0.702% FLOPs, 184, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 80, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer11): InvertedResidualV3(
+      0.212 M, 6.463% Params, 3.209 GFLOPs, 4.669% FLOPs, 
+      (expand_conv): ConvModule(
+        0.038 M, 1.169% Params, 1.274 GFLOPs, 1.854% FLOPs, 
+        (conv): Conv2d(0.038 M, 1.169% Params, 1.258 GFLOPs, 1.831% FLOPs, 80, 480, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 480, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.016 GFLOPs, 0.023% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.016 GFLOPs, 0.023% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.004 M, 0.132% Params, 0.157 GFLOPs, 0.229% FLOPs, 
+        (conv): Conv2d(0.004 M, 0.132% Params, 0.142 GFLOPs, 0.206% FLOPs, 480, 480, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), groups=480, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 480, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.016 GFLOPs, 0.023% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.016 GFLOPs, 0.023% FLOPs, inplace=True)
+        )
+      )
+      (se): SELayer(
+        0.116 M, 3.526% Params, 0.016 GFLOPs, 0.023% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.016 GFLOPs, 0.023% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.058 M, 1.757% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.058 M, 1.757% Params, 0.0 GFLOPs, 0.000% FLOPs, 480, 120, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.058 M, 1.768% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.058 M, 1.768% Params, 0.0 GFLOPs, 0.000% FLOPs, 120, 480, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.054 M, 1.637% Params, 1.762 GFLOPs, 2.564% FLOPs, 
+        (conv): Conv2d(0.054 M, 1.637% Params, 1.762 GFLOPs, 2.564% FLOPs, 480, 112, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 112, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer12): InvertedResidualV3(
+      0.383 M, 11.667% Params, 5.197 GFLOPs, 7.563% FLOPs, 
+      (expand_conv): ConvModule(
+        0.075 M, 2.291% Params, 2.488 GFLOPs, 3.621% FLOPs, 
+        (conv): Conv2d(0.075 M, 2.291% Params, 2.466 GFLOPs, 3.589% FLOPs, 112, 672, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 672, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.006 M, 0.184% Params, 0.22 GFLOPs, 0.320% FLOPs, 
+        (conv): Conv2d(0.006 M, 0.184% Params, 0.198 GFLOPs, 0.288% FLOPs, 672, 672, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), groups=672, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 672, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, inplace=True)
+        )
+      )
+      (se): SELayer(
+        0.227 M, 6.900% Params, 0.022 GFLOPs, 0.032% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.113 M, 3.442% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.113 M, 3.442% Params, 0.0 GFLOPs, 0.000% FLOPs, 672, 168, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.114 M, 3.458% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.114 M, 3.458% Params, 0.0 GFLOPs, 0.000% FLOPs, 168, 672, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.075 M, 2.291% Params, 2.466 GFLOPs, 3.589% FLOPs, 
+        (conv): Conv2d(0.075 M, 2.291% Params, 2.466 GFLOPs, 3.589% FLOPs, 672, 112, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 112, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer13): InvertedResidualV3(
+      0.409 M, 12.465% Params, 6.056 GFLOPs, 8.812% FLOPs, 
+      (expand_conv): ConvModule(
+        0.075 M, 2.291% Params, 2.488 GFLOPs, 3.621% FLOPs, 
+        (conv): Conv2d(0.075 M, 2.291% Params, 2.466 GFLOPs, 3.589% FLOPs, 112, 672, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 672, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, 
+        (conv): Conv2dAdaptivePadding(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 672, 672, kernel_size=(5, 5), stride=(1, 1), dilation=(4, 4), groups=672, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 672, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, inplace=True)
+        )
+      )
+      (se): SELayer(
+        0.227 M, 6.900% Params, 0.022 GFLOPs, 0.032% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.022 GFLOPs, 0.032% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.113 M, 3.442% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.113 M, 3.442% Params, 0.0 GFLOPs, 0.000% FLOPs, 672, 168, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.114 M, 3.458% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.114 M, 3.458% Params, 0.0 GFLOPs, 0.000% FLOPs, 168, 672, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.108 M, 3.274% Params, 3.523 GFLOPs, 5.127% FLOPs, 
+        (conv): Conv2d(0.108 M, 3.274% Params, 3.523 GFLOPs, 5.127% FLOPs, 672, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer14): InvertedResidualV3(
+      0.793 M, 24.149% Params, 10.948 GFLOPs, 15.931% FLOPs, 
+      (expand_conv): ConvModule(
+        0.154 M, 4.676% Params, 5.065 GFLOPs, 7.370% FLOPs, 
+        (conv): Conv2d(0.154 M, 4.676% Params, 5.033 GFLOPs, 7.324% FLOPs, 160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.024 M, 0.731% Params, 0.818 GFLOPs, 1.190% FLOPs, 
+        (conv): Conv2d(0.024 M, 0.731% Params, 0.786 GFLOPs, 1.144% FLOPs, 960, 960, kernel_size=(5, 5), stride=(1, 1), padding=(8, 8), dilation=(4, 4), groups=960, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, inplace=True)
+        )
+      )
+      (se): SELayer(
+        0.462 M, 14.066% Params, 0.032 GFLOPs, 0.046% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.231 M, 7.022% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.231 M, 7.022% Params, 0.0 GFLOPs, 0.000% FLOPs, 960, 240, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.231 M, 7.044% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.231 M, 7.044% Params, 0.0 GFLOPs, 0.000% FLOPs, 240, 960, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.154 M, 4.676% Params, 5.033 GFLOPs, 7.324% FLOPs, 
+        (conv): Conv2d(0.154 M, 4.676% Params, 5.033 GFLOPs, 7.324% FLOPs, 960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer15): InvertedResidualV3(
+      0.793 M, 24.149% Params, 10.948 GFLOPs, 15.931% FLOPs, 
+      (expand_conv): ConvModule(
+        0.154 M, 4.676% Params, 5.065 GFLOPs, 7.370% FLOPs, 
+        (conv): Conv2d(0.154 M, 4.676% Params, 5.033 GFLOPs, 7.324% FLOPs, 160, 960, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, inplace=True)
+        )
+      )
+      (depthwise_conv): ConvModule(
+        0.024 M, 0.731% Params, 0.818 GFLOPs, 1.190% FLOPs, 
+        (conv): Conv2d(0.024 M, 0.731% Params, 0.786 GFLOPs, 1.144% FLOPs, 960, 960, kernel_size=(5, 5), stride=(1, 1), padding=(8, 8), dilation=(4, 4), groups=960, bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): HSwish(
+          0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, 
+          (act): ReLU6(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, inplace=True)
+        )
+      )
+      (se): SELayer(
+        0.462 M, 14.066% Params, 0.032 GFLOPs, 0.046% FLOPs, 
+        (global_avgpool): AdaptiveAvgPool2d(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, output_size=1)
+        (conv1): ConvModule(
+          0.231 M, 7.022% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.231 M, 7.022% Params, 0.0 GFLOPs, 0.000% FLOPs, 960, 240, kernel_size=(1, 1), stride=(1, 1))
+          (activate): ReLU(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, inplace=True)
+        )
+        (conv2): ConvModule(
+          0.231 M, 7.044% Params, 0.0 GFLOPs, 0.000% FLOPs, 
+          (conv): Conv2d(0.231 M, 7.044% Params, 0.0 GFLOPs, 0.000% FLOPs, 240, 960, kernel_size=(1, 1), stride=(1, 1))
+          (activate): HSigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+        )
+      )
+      (linear_conv): ConvModule(
+        0.154 M, 4.676% Params, 5.033 GFLOPs, 7.324% FLOPs, 
+        (conv): Conv2d(0.154 M, 4.676% Params, 5.033 GFLOPs, 7.324% FLOPs, 960, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer16): ConvModule(
+      0.154 M, 4.676% Params, 5.065 GFLOPs, 7.370% FLOPs, 
+      (conv): Conv2d(0.154 M, 4.676% Params, 5.033 GFLOPs, 7.324% FLOPs, 160, 960, kernel_size=(1, 1), stride=(1, 1), dilation=(4, 4), bias=False)
+      (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 960, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): HSwish(
+        0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, 
+        (act): ReLU6(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, inplace=True)
+      )
+    )
+  )
+  init_cfg=[{'type': 'Kaiming', 'layer': 'Conv2d'}, {'type': 'Constant', 'val': 1, 'layer': ['_BatchNorm', 'GroupNorm']}]
+  (decode_head): LRASPPHead(
+    0.312 M, 9.494% Params, 20.407 GFLOPs, 29.697% FLOPs, input_transform=multiple_select, ignore_index=255, align_corners=False
+    (loss_decode): CrossEntropyLoss(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+    (conv_seg): Conv2d(0.002 M, 0.075% Params, 1.285 GFLOPs, 1.870% FLOPs, 128, 19, kernel_size=(1, 1), stride=(1, 1))
+    (dropout): Dropout2d(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, p=0.1, inplace=False)
+    (convs): Sequential(
+      0.002 M, 0.062% Params, 0.47 GFLOPs, 0.684% FLOPs, 
+      (conv0): Conv2d(0.001 M, 0.016% Params, 0.268 GFLOPs, 0.391% FLOPs, 16, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (conv1): Conv2d(0.002 M, 0.047% Params, 0.201 GFLOPs, 0.293% FLOPs, 24, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    )
+    (conv_ups): Sequential(
+      0.045 M, 1.372% Params, 14.043 GFLOPs, 20.435% FLOPs, 
+      (conv_up0): ConvModule(
+        0.02 M, 0.624% Params, 10.805 GFLOPs, 15.723% FLOPs, 
+        (conv): Conv2d(0.02 M, 0.624% Params, 10.737 GFLOPs, 15.625% FLOPs, 160, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.067 GFLOPs, 0.098% FLOPs, inplace=True)
+      )
+      (conv_up1): ConvModule(
+        0.025 M, 0.748% Params, 3.238 GFLOPs, 4.712% FLOPs, 
+        (conv): Conv2d(0.025 M, 0.748% Params, 3.221 GFLOPs, 4.688% FLOPs, 192, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+        (activate): ReLU(0.0 M, 0.000% Params, 0.017 GFLOPs, 0.024% FLOPs, inplace=True)
+      )
+    )
+    (conv_up_input): Conv2d(0.017 M, 0.503% Params, 0.541 GFLOPs, 0.787% FLOPs, 128, 128, kernel_size=(1, 1), stride=(1, 1))
+    (aspp_conv): ConvModule(
+      0.123 M, 3.741% Params, 4.031 GFLOPs, 5.866% FLOPs, 
+      (conv): Conv2d(0.123 M, 3.741% Params, 4.027 GFLOPs, 5.859% FLOPs, 960, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): SyncBatchNorm(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, 128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      (activate): ReLU(0.0 M, 0.000% Params, 0.004 GFLOPs, 0.006% FLOPs, inplace=True)
+    )
+    (image_pool): Sequential(
+      0.123 M, 3.741% Params, 0.038 GFLOPs, 0.055% FLOPs, 
+      (0): AvgPool2d(0.0 M, 0.000% Params, 0.031 GFLOPs, 0.046% FLOPs, kernel_size=49, stride=(16, 20), padding=0)
+      (1): ConvModule(
+        0.123 M, 3.741% Params, 0.006 GFLOPs, 0.009% FLOPs, 
+        (conv): Conv2d(0.123 M, 3.741% Params, 0.006 GFLOPs, 0.009% FLOPs, 960, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (activate): Sigmoid(0.0 M, 0.000% Params, 0.0 GFLOPs, 0.000% FLOPs, )
+      )
+    )
+  )
+  init_cfg={'type': 'Normal', 'std': 0.01, 'override': {'name': 'conv_seg'}}
+)
+==============================
+Input shape: (3, 2048, 1024)
+Flops: 68.72 GFLOPs
+Params: 3.28 M
+==============================
+!!!Please be cautious if you use the results in papers. You may need to check if all ops are supported and verify that the flops computation is correct.
