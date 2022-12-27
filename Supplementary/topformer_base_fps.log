@@ -1,3 +1,7 @@
-2022-12-27 12:01:04,349 - mmseg - INFO - Loaded 1525 images
+2022-12-27 15:20:50,345 - mmseg - INFO - Loaded 1525 images
 load checkpoint from local path: /mnt/data/sonny/checkpoints/topformer/latest.pth
-[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 1525/1525, 15.6 task/s, elapsed: 98s, ETA:     0s
+Done image [50 / 200], fps: 51.55 img / s
+Done image [100/ 200], fps: 52.04 img / s
+Done image [150/ 200], fps: 53.81 img / s
+Done image [200/ 200], fps: 53.59 img / s
+Overall fps: 53.59 img / s
