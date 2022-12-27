@@ -1,0 +1,3 @@
+2022-12-27 12:01:04,349 - mmseg - INFO - Loaded 1525 images
+load checkpoint from local path: /mnt/data/sonny/checkpoints/topformer/latest.pth
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>] 1525/1525, 15.6 task/s, elapsed: 98s, ETA:     0s
