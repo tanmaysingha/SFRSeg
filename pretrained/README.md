@@ -1,13 +1,14 @@
 ## Pretrained weights for SFRSeg
 
-SFRSeg was implemented in [tensorflow](https://www.tensorflow.org/) and [keras](https://keras.io/), and pre-trained weights were saved as hdf5 files. Below are download links for pretrained weights for different datasets:
+SFRSeg was implemented in [tensorflow](https://www.tensorflow.org/) and [keras](https://keras.io/), and pre-trained weights were saved as hdf5 files. 
 
-[Cityscapes pretrained weight](https://cloudstor.net.au/123456)
+Below is the link to a cloud folder that contains pre-trained weights
 
-[KITTI pretrained weight](https://cloudstor.net.au/123456)
+[https://cloudstor.aarnet.edu.au/plus/s/feEYJjVCGBj5wTU](https://cloudstor.aarnet.edu.au/plus/s/feEYJjVCGBj5wTU)
 
-[Camvid pretrained weight](https://cloudstor.net.au/123456)
-
-[Indoor robot navigation dataset](https://cloudstor.net.au/123456) 
+* Cityscapes pre-trained weight
+* KITTY pre-trained weight
+* Camvid pre-trained weight
+* Indoor objects pre-trained weight
 
 Users not familiar with tensorflow/keras should consult relevant [documentation](https://www.tensorflow.org/guide/keras/save_and_serialize) to understand how to load pre-trained weights into a model.
