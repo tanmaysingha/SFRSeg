@@ -34,8 +34,6 @@ usage: train.py [-h] -m {unet,bayes_segnet,deeplabv3+,fastscnn,separable_unet}
                 
 Start training a semantic segmentation model
 
-
-
 optional arguments:
 
   -h, --help            show this help message and exit
@@ -97,13 +95,9 @@ optional arguments:
 
                         Set the learning rate
 
-
-
 schedule:
 
   Arguments for the Learning Rate Scheduler
-
-
 
   --max-lr MAX_LR       The maximum learning rate during training
 
