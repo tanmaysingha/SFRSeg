@@ -17,23 +17,16 @@ Users not familiar with tensorflow/keras should consult relevant [documentation]
 
 python train.py --help
 
-usage: train.py [-h] -m {unet,bayes_segnet,deeplabv3+,fastscnn,separable_unet} 
-
+usage: 
+train.py [-h] -m {SFRSeg,FANet,ICNet,fastscnn,STDC1_Seg} 
                 [-r RESUME] [-p PATH] [-c] [-t TARGET_SIZE] [-b BATCH]
-
                 [-e EPOCHS] [--mixed-precision]
-
                 [-f {adadelta,adagrad,adam,adamax,ftrl,nadam,rmsprop,sgd,sgd_nesterov}]
-
                 [--schedule {polynomial,cyclic}] [--momentum MOMENTUM]
-
                 [-l LEARNING_RATE] [--max-lr MAX_LR] [--min-lr MIN_LR]
-
                 [--power POWER] [--cycle CYCLE]
-                
-                
+                               
 Start training a semantic segmentation model
-
 optional arguments:
 
   -h, --help            show this help message and exit
