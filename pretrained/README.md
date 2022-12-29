@@ -2,10 +2,6 @@
 
 SFRSeg was implemented in [tensorflow](https://www.tensorflow.org/) and [keras](https://keras.io/), and pre-trained weights were saved as hdf5 files. 
 
-Below is the link to a cloud folder that contains pre-trained weights
-
-[https://cloudstor.aarnet.edu.au/plus/s/feEYJjVCGBj5wTU](https://cloudstor.aarnet.edu.au/plus/s/feEYJjVCGBj5wTU)
-
 * Cityscapes pre-trained weight: [cityscapes_weight](https://cloudstor.aarnet.edu.au/plus/s/JO9ij8gZNZ2bLHz/download)
 * KITTY pre-trained weight: [kitti_weight](https://cloudstor.aarnet.edu.au/plus/s/OvRHlSBfuqEdTt2/download)
 * Camvid pre-trained weight: [camvid_weight.h5](https://cloudstor.aarnet.edu.au/plus/s/jqdoxoUyCDkbcm9/download)
