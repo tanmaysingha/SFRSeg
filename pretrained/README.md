@@ -11,8 +11,7 @@ Users not familiar with tensorflow/keras should consult relevant [documentation]
 
 ## Scripts
 
-Use the script [predict.py](https://github.com/tanmaysingha/SFRSeg/blob/main/pretrained/predict.py) to load the pre-trained weight and generate prediction. For further information please visit
-https://github.com/SkyWa7ch3r/ImageSegmentation
+Use the script [predict.py](https://github.com/tanmaysingha/SFRSeg/blob/main/pretrained/predict.py) to load the pre-trained weight and generate prediction. All Python scripts implementing SFRSeg and other models under [models](https://github.com/tanmaysingha/SFRSeg/tree/main/models) should also be added to PYTHONPATH. Finally, a training script [train.py](https://github.com/tanmaysingha/SFRSeg/blob/main/pretrained/train.py) is also provided for custom training. For further information please visit https://github.com/SkyWa7ch3r/ImageSegmentation
 
 ## Requirements 
 * TensorFlow 2.1
