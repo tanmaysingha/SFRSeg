@@ -1,6 +1,6 @@
 ## Supplementary materials for review purposes
 Here are some files that we hope would make it even clearer to demonstrate how we obtain semantic segmentation results for SFRSeg and some other compared methods
-
+* [supp.pdf](https://github.com/tanmaysingha/SFRSeg/blob/main/Supplementary/supp.pdf): explains the implementation details of our proposed model SFRSeg. As per the request of a reviewer, we leave the details here instead to shorten the paper.
 * Cityscapes_Test_Results.pdf: Official Cityscapes' evaluation of our proposed SFRSeg model on the Cityscapes test set.
 * KITTI_Test_Results.pdf: Official KITTY's evaluation of our proposed SFRSeg model on the KITTI test set.
 * LR-ASPP_M-V3-D8_cityscapes_test_mIoU.pdf: Official Cityscapes' evaluation of LR-ASPP (with MobileNetV3 D8 backbone) on the Cityscapes test set.
