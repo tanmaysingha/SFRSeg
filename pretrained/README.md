@@ -11,7 +11,7 @@ Users not familiar with tensorflow/keras should consult relevant [documentation]
 
 ## Scripts
 
-Use the script predict.py to load the pre-trained weight and generate prediction. For further information please visit
+Use the script [predict.py](https://github.com/tanmaysingha/SFRSeg/blob/main/pretrained/predict.py) to load the pre-trained weight and generate prediction. For further information please visit
 https://github.com/SkyWa7ch3r/ImageSegmentation
 
 ## Requirements 
