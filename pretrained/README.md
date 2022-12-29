@@ -1,6 +1,6 @@
 ## Pretrained weights for SFRSeg
 
-SFRSeg was implemented in [tensorflow](https://www.tensorflow.org/) and [keras](https://keras.io/), and pre-trained weights were saved as hdf5 files. 
+SFRSeg was implemented in [tensorflow](https://www.tensorflow.org/) and [keras](https://keras.io/), and pre-trained weights were saved as hdf5/h5 files. 
 
 * Cityscapes pre-trained weight: [cityscapes_weight.hdf5](https://cloudstor.aarnet.edu.au/plus/s/JO9ij8gZNZ2bLHz/download)
 * KITTY pre-trained weight: [kitti_weight.hdf5](https://cloudstor.aarnet.edu.au/plus/s/OvRHlSBfuqEdTt2/download)
