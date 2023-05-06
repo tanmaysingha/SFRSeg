@@ -1,5 +1,5 @@
 # SFRSeg: Shared Feature Reuse Segmentation Model for Resource Constrained Devices
-This is an official site for SFRSeg model. Currently, the model predictions and supplimentary materials are uploaded. Upon the acceptance of the paper, this repository will be updated.
+This is an official site for SFRSeg model. To refer this paper, visit the following link: https://www.sciencedirect.com/science/article/pii/S0031320323002571
 
 ## Datasets
 For this research work, we have used Cityscapes, KITTI, CamVid and Indoor objects datasets.
@@ -98,14 +98,18 @@ https://github.com/tanmaysingha/SFRSeg/blob/main/Supplementary/KITTI_Test_Result
 ### Citation
  ```yaml
 cff-version: 1.2.0
-If FANet is useful for your research work, please consider for citing the paper:
-@inproceedings{singha2020fanet,
-  title={FANet: Feature Aggregation Network for Semantic Segmentation},
-  author={Singha, Tanmay and Pham, Duc-Son and Krishna, Aneesh},
-  booktitle={2020 Digital Image Computing: Techniques and Applications (DICTA)},
-  pages={1--8},
-  year={2020},
-  organization={IEEE}
+If this research work is useful for your research work, then please consider for citing the paper:
+@article{SINGHA2023109557,
+title = {A real-time semantic segmentation model using iteratively shared features in multiple sub-encoders},
+journal = {Pattern Recognition},
+volume = {140},
+pages = {109557},
+year = {2023},
+issn = {0031-3203},
+doi = {https://doi.org/10.1016/j.patcog.2023.109557},
+url = {https://www.sciencedirect.com/science/article/pii/S0031320323002571},
+author = {Tanmay Singha and Duc-Son Pham and Aneesh Krishna}
 }
+
 ```
 
