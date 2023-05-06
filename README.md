@@ -94,3 +94,18 @@ https://github.com/tanmaysingha/SFRSeg/blob/main/Supplementary/KITTI_Test_Result
 
 ### SFRSeg prediction on Indoor objects scenes
 ![indoor_val_set](https://github.com/tanmaysingha/SFRSeg/blob/main/Images/Indoor_pred.png?raw=true)
+
+### Citation
+ ```yaml
+cff-version: 1.2.0
+If FANet is useful for your research work, please consider for citing the paper:
+@inproceedings{singha2020fanet,
+  title={FANet: Feature Aggregation Network for Semantic Segmentation},
+  author={Singha, Tanmay and Pham, Duc-Son and Krishna, Aneesh},
+  booktitle={2020 Digital Image Computing: Techniques and Applications (DICTA)},
+  pages={1--8},
+  year={2020},
+  organization={IEEE}
+}
+```
+
