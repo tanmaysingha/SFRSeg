@@ -1,5 +1,20 @@
-# New design of a DCNN model (contextNet style) (Moritz and Tanmay version-3/6/21)
-# Experimental - to be polished
+# -*- coding: utf-8 -*-
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+Implementation of FANet using Tensorflow 2.1.0 and Keras 2.3.0
+
+"""
 
 from functools import reduce
 import tensorflow as tf
@@ -237,12 +252,12 @@ def model(num_classes=19, input_size=(1024, 2048, 3)):
 
     w = 64 #channel width of DIS-CAM
     #shared features
-    F6 = shared_branch4 #16
-    F5 = Deep_shallow_Add43 #32
-    F4 = Deep_shallow_Add32 #64
+    F6 = shared_branch4 
+    F5 = Deep_shallow_Add43 
+    F4 = Deep_shallow_Add32 
     #shallow features
-    F3 = Deep_shallow_Add21  #128
-    F2 = ds1 #256
+    F3 = Deep_shallow_Add21  
+    F2 = ds1
     F1 = conv1
 
     F6_in = tf.keras.layers.Conv2D(w, 1, 1, padding='same', activation=None, name='F6/conv2d')(F6)
@@ -263,47 +278,37 @@ def model(num_classes=19, input_size=(1024, 2048, 3)):
     F2_in = tf.keras.layers.BatchNormalization()(F2_in)
     F1_in = tf.keras.layers.Conv2D(w, 1, 1, padding='same', activation=None, name='F1/conv2d')(F1)
     F1_in = tf.keras.layers.BatchNormalization()(F1_in)
-    #shallow_branch2 = tf.keras.layers.Conv2D(64, 1, 1, padding='same', activation=None, name='SB2')(shallow_branch2)
-    #shallow_branch2 = tf.keras.layers.BatchNormalization()(shallow_branch2)
 
     #Top-down
     F7_U = tf.keras.layers.UpSampling2D()(F7_in)
     F6_td = tf.keras.layers.Add()([F6_in, F7_U])
     F6_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F6_td)
-    #F6_td = tf.keras.activations.swish(F6_td) # tensorflow does not have swish
     F6_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1, name='F6_td1')(F6_td)
     
-    F6_U = tf.keras.layers.UpSampling2D((2, 2))(F6_td)  #64x128x160   
+    F6_U = tf.keras.layers.UpSampling2D((2, 2))(F6_td)  
     F5_td = tf.keras.layers.add([F6_U, F5_in])
-    #F4_td = tf.keras.activations.relu(F4_td) #64x128x96
     F5_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F5_td)
-    #F5_td = tf.keras.activations.swish(F5_td)
     F5_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F5_td1')(F5_td)
 
-    F5_U = tf.keras.layers.UpSampling2D((2, 2))(F5_td)  #64x128x160   
+    F5_U = tf.keras.layers.UpSampling2D((2, 2))(F5_td) 
     F4_td = tf.keras.layers.add([F5_U, F4_in])
-    #F4_td = tf.keras.activations.relu(F4_td) #64x128x96
     F4_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F4_td)
-    #F4_td = tf.keras.activations.swish(F4_td)
     F4_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F4_td1')(F4_td)
        
     F1_M = tf.keras.layers.MaxPooling2D(pool_size=3, strides=2, padding='same', name='F1/MaxPool')(F1_in)
     F2_td = tf.keras.layers.add([F1_M, F2_in])
     F2_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F2_td)
-    #F2_td = tf.keras.activations.swish(F2_td)
     F2_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F2_bu1')(F2_td)
 
     F2_M = tf.keras.layers.MaxPooling2D(pool_size=3, strides=2, padding='same', name='F2/MaxPool')(F2_td)
     F3_td = tf.keras.layers.add([F2_M, F3_in])
     F3_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F3_td)
-    #F3_td = tf.keras.activations.swish(F3_td)
     F3_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F3_bu1')(F3_td)
 
     #Bottom-Up continue
     F3_M = tf.keras.layers.MaxPooling2D(pool_size=3, strides=2, padding='same', name='F3/MaxPool')(F3_td)
     F4_td = tf.keras.layers.add([F3_M, F4_td])
     F4_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F4_td)
-    #F4_td = tf.keras.activations.swish(F4_td)
     F4_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F4_bu1')(F4_td)
     
     F4_td = DCM_block(F4_td)
@@ -311,19 +316,16 @@ def model(num_classes=19, input_size=(1024, 2048, 3)):
     F4_M = tf.keras.layers.MaxPooling2D(pool_size=3, strides=2, padding='same', name='F4/MaxPool')(F4_td)
     F5_td = tf.keras.layers.add([F4_M, F5_td, F5_in])
     F5_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F5_td)
-    #F5_td = tf.keras.activations.swish(F5_td)
     F5_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F5_bu1')(F5_td)
 
     F5_M = tf.keras.layers.MaxPooling2D(pool_size=3, strides=2, padding='same', name='F5/MaxPool')(F5_td)
     F6_td = tf.keras.layers.add([F5_M, F6_in])
     F6_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F6_td)
-    #F6_td = tf.keras.activations.swish(F6_td)
     F6_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F6_bu1')(F6_td)
     
     F6_M = tf.keras.layers.MaxPooling2D(pool_size=3, strides=2, padding='same', name='F6/MaxPool')(F6_td)
     F7_td = tf.keras.layers.add([F6_M, F7_in])
     F7_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F7_td)
-    #F7_td = tf.keras.activations.swish(F7_td)
     F7_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F7_bu1')(F7_td)
 
     #Top-down
@@ -331,44 +333,33 @@ def model(num_classes=19, input_size=(1024, 2048, 3)):
     F7_U = tf.keras.layers.UpSampling2D((2, 2))(F7_td)
     F6_td = tf.keras.layers.add([F7_U, F6_td, F6_in])
     F6_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F6_td)
-    #F6_td = tf.keras.activations.swish(F6_td)
     F6_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F6_td2')(F6_td)
     
     F6_U = tf.keras.layers.UpSampling2D((2, 2))(F6_td)  #64x128x160   
     F5_td = tf.keras.layers.add([F6_U, F5_td, F5_in])
     F5_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F5_td)
-    #F5_td = tf.keras.activations.swish(F5_td)
     F5_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F5_td2')(F5_td)
 
-    F5_U = tf.keras.layers.UpSampling2D((2, 2))(F5_td)  #64x128x160   
+    F5_U = tf.keras.layers.UpSampling2D((2, 2))(F5_td)   
     F4_td = tf.keras.layers.add([F5_U, F4_td, F4_in])
-    #F4_td = tf.keras.activations.relu(F4_td) #64x128x96
     F4_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F4_td)
-    #F4_td = tf.keras.activations.swish(F4_td)
     F4_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F4_td2')(F4_td)
 
-    F4_U = tf.keras.layers.UpSampling2D((2, 2))(F4_td)  #64x128x160   
+    F4_U = tf.keras.layers.UpSampling2D((2, 2))(F4_td)  
     F3_td = tf.keras.layers.add([F4_U, F3_td, F3_in])
-    #F4_td = tf.keras.activations.relu(F4_td) #64x128x96
     F3_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F3_td)
-    #F3_td = tf.keras.activations.swish(F3_td)
     F3_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F3_td2')(F3_td)
 
-    F3_U = tf.keras.layers.UpSampling2D((2, 2))(F3_td)  #64x128x160   
+    F3_U = tf.keras.layers.UpSampling2D((2, 2))(F3_td)   
     F2_td = tf.keras.layers.add([F3_U, F2_td, F2_in])
-    #F4_td = tf.keras.activations.relu(F4_td) #64x128x96
     F2_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F2_td)
-    #F2_td = tf.keras.activations.swish(F2_td)
     F2_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F2_td2')(F2_td)
     
-    F2_U = tf.keras.layers.UpSampling2D((2, 2))(F2_td)  #64x128x160   
+    F2_U = tf.keras.layers.UpSampling2D((2, 2))(F2_td) 
     F1_td = tf.keras.layers.add([F2_U, F1_in])
-    #F4_td = tf.keras.activations.relu(F4_td) #64x128x96
     F1_td = tf.keras.layers.Activation(lambda x: tf.nn.swish(x))(F1_td)
-    #F1_td = tf.keras.activations.swish(F1_td)
     F1_td = SeparableConvBlock(num_channels=w, kernel_size=3, strides=1,name='F1_td2')(F1_td)
 
-    #output module- it is required to add this module (tanmay)
     output = tf.keras.layers.SeparableConv2D(64, (3, 3), padding='same', strides = (1, 1), dilation_rate=4, name = 'DSConv1_output')(F1_td)
     output = tf.keras.layers.BatchNormalization()(output)
     output = tf.keras.activations.relu(output)
