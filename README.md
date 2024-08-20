@@ -1,4 +1,6 @@
 # SFRSeg: Shared Feature Reuse Segmentation Model for Resource Constrained Devices
+This is a demonstration of Forking and pull request. 
+
 This is an official site for SFRSeg model. To refer this paper, visit the following link: https://www.sciencedirect.com/science/article/pii/S0031320323002571
 
 ## Datasets
